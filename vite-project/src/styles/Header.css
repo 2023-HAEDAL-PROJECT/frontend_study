@@ -1,0 +1,21 @@
+header {
+  background-color: #333; /* 배경색 설정 */
+  color: #fff; /* 텍스트 색상 설정 */
+  padding: 10px 0; /* 내부 여백 설정 (상하 10px, 좌우 0) */
+}
+
+/* Navigation styles */
+nav ul {
+  text-align: center; /* 메뉴 항목 가운데 정렬 */
+}
+
+nav li {
+  display: inline; /* 메뉴 항목을 수평으로 배치 */
+  margin: 0 20px; /* 메뉴 항목 사이의 간격 설정 (좌우 20px) */
+}
+
+nav a {
+  color: #fff; /* 메뉴 항목 텍스트 색상 설정 */
+  font-weight: bold; /* 메뉴 항목 텍스트 굵기 설정 */
+  font-size: 18px; /* 메뉴 항목 텍스트 크기 설정 */
+}
