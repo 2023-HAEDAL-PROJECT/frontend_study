@@ -1,7 +1,30 @@
-header {
-  background-color: #333; /* 배경색 설정 */
-  color: #fff; /* 텍스트 색상 설정 */
+.Header-wrapper {
+  background-color: #fff; /* 배경색 설정 */
+  color: #000000; /* 텍스트 색상 설정 */
   padding: 10px 0; /* 내부 여백 설정 (상하 10px, 좌우 0) */
+
+  width: 100%;
+  height: 100px;
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.Header-contaier{
+  flex-direction: row;
+}
+
+li{
+  list-style: none;
+}
+
+.Nav-contanier{
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
 }
 
 /* Navigation styles */
@@ -19,3 +42,4 @@ nav a {
   font-weight: bold; /* 메뉴 항목 텍스트 굵기 설정 */
   font-size: 18px; /* 메뉴 항목 텍스트 크기 설정 */
 }
+
