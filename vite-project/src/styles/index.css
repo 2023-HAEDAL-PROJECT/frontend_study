@@ -3,7 +3,19 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+
+
 }
+
+li:visited{
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:visited {color:black}
 
 ol, ul {
 	list-style: none;

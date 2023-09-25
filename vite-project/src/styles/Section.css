@@ -1,0 +1,7 @@
+.Section-wrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 나머지 섹션은 남은 너비를 채움 */
+  width: max-content;
+  color: black;
+}

@@ -10,21 +10,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
 
-.Header-contaier{
-  flex-direction: row;
+.Header-container{
+  max-width: 1080px;
+  height: 100%;
+  padding: 10px 30px;
+
+  border: 1px solid #000; /* 5px 너비의 검은색 테두리 */
+  border-radius: 20px;
+
+  /* 그림자 추가 */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* 검은색 그림자, 10px 흐림 */
+
+  display: flex;
+  align-items: center;
 }
 
 li{
   list-style: none;
+  gap: 100px
+}
+
+li:visited{
+  text-decoration-line: none;
+}
+
+.Nav-wrapper{
+  display: flex;
+  flex-direction: row;
 }
 
 .Nav-contanier{
   display: flex;
   flex-direction: row;
-  gap: 80px;
+  gap: 100px
+}
+
+.Nav-text{
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* Navigation styles */

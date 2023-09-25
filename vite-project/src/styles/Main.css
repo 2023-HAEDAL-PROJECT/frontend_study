@@ -1,0 +1,9 @@
+.wrapper{
+  width: 100%;
+}
+
+.page-center{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}

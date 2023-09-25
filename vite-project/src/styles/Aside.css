@@ -1,0 +1,15 @@
+.Aside-wrapper{
+  margin-right: 20px; /* 오른쪽 마진 추가 */
+  width: 100px; /* 너비를 100px로 설정 */
+  left: 0; /* 왼쪽에 고정 */
+  height: 80vh; /* 높이를 화면 높이에 맞춤 */
+
+  background-color: #d0c6ed;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+
+  flex: 0 0 auto; /* Aside의 너비를 변경하지 않음 */
+}
