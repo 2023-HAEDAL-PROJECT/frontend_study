@@ -10,7 +10,7 @@ export default function LSH() {
   return (
     <>
       <Header />
-      <Nav />
+
       <Aside />
       <Section>
         <Article />
