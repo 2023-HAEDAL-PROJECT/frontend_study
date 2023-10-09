@@ -1,0 +1,31 @@
+.titleImg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnList{
+  display: flex;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+
+.contributor{
+  cursor: pointer;
+}
+.start{
+  cursor: pointer;
+  margin-left: 4.4vw;
+}
+.help{
+  cursor: pointer;
+  margin-left: 5.2vw;
+}
+
+@media (max-width: 539px) {
+  .ResultEngine{
+      width: 90vw;
+  }
+}
