@@ -90,6 +90,8 @@ export default function SQuestion() {
 
   const [walking, setWalking] = useState(false);
   const [motion, setMotion] = useState(false);
+  const [Lmotion, setLMotion] = useState(false);
+  const [Rmotion, setRMotion] = useState(false);
   const [position, setPosition] = useState(0);
 
   const [Lposition, setLposition] = useState(0);
@@ -106,34 +108,19 @@ export default function SQuestion() {
   const [urlAnswerIdL, setUrlAnswerIdL] = useState();
   const [urlAnswerIdR, setUrlAnswerIdR] = useState();
 
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}/question/${stage}`, {})
-      .then((response) => {
-        console.log(response.data);
-        setUrlQuestion(response.data.questionContent);
-        setUrlAnswer(response.data.answerContent1);
-        setUrlAnswer2(response.data.answerContent2);
-        setUrlAnswerIdL(response.data.answerId1);
-        setUrlAnswerIdR(response.data.answerId2);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [stage]);
+  /* API 통신 코드가 필요한 부분 */
+  useEffect(() => {}, []);
 
   const toggleWalking = (direction) => {
     if (direction === "Right") {
       console.log("오른쪽이동");
-      axios.post(`${BASE_URL}/answer/1/${urlAnswerIdL}`, {}).then((res) => {
-        console.log(res.data);
-      });
+      /* API 통신 코드가 필요한 부분 */
+
       setWalking((prevWalking) => 2);
     } else if (direction === "Left") {
       console.log("왼쪽이동");
-      axios.post(`${BASE_URL}/answer/1/${urlAnswerIdR}`, {}).then((res) => {
-        console.log(res.data);
-      });
+      /* API 통신 코드가 필요한 부분 */
+
       setWalking((prevWalking) => 1);
     }
   };
