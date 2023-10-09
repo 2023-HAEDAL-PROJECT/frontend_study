@@ -20,7 +20,6 @@ export default function App() {
         <Route path="/*" Component={Error} />
         <Route path="/LSH" Component={LSH} />
         <Route path="/question" Component={SQuestion2} />
-
         <Route path="/TagForm" Component={TagForm} />
       </Routes>
     </>

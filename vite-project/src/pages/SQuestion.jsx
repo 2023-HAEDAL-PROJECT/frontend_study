@@ -11,8 +11,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import ApiTest from "./ApiTest";
+
 /* 결과 모달 창 */
-function Modal({ showModal, setShowModal, dimensionValues }) {
+function Modal({ showModal, setShowModal, result }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -27,7 +29,7 @@ function Modal({ showModal, setShowModal, dimensionValues }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <button onClick={handleNavigate}>결과 보기</button>
+        <button onClick={handleNavigate}>{result}</button>
       </div>
     </div>
   );
@@ -90,6 +92,8 @@ export default function SQuestion() {
 
   const [walking, setWalking] = useState(false);
   const [motion, setMotion] = useState(false);
+  const [Lmotion, setLMotion] = useState(false);
+  const [Rmotion, setRMotion] = useState(false);
   const [position, setPosition] = useState(0);
 
   const [Lposition, setLposition] = useState(0);
@@ -105,7 +109,9 @@ export default function SQuestion() {
   const [urlAnswer2, setUrlAnswer2] = useState("");
   const [urlAnswerIdL, setUrlAnswerIdL] = useState();
   const [urlAnswerIdR, setUrlAnswerIdR] = useState();
+  const [result, setResult] = useState("null");
 
+  /* API 통신 코드가 필요한 부분 */
   useEffect(() => {
     axios
       .get(`${BASE_URL}/question/${stage}`, {})
@@ -117,23 +123,27 @@ export default function SQuestion() {
         setUrlAnswerIdL(response.data.answerId1);
         setUrlAnswerIdR(response.data.answerId2);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((res) => {
+        throw new Error("Network");
       });
   }, [stage]);
 
   const toggleWalking = (direction) => {
     if (direction === "Right") {
       console.log("오른쪽이동");
-      axios.post(`${BASE_URL}/answer/1/${urlAnswerIdL}`, {}).then((res) => {
-        console.log(res.data);
-      });
-      setWalking((prevWalking) => 2);
-    } else if (direction === "Left") {
-      console.log("왼쪽이동");
+      /* API 통신 코드가 필요한 부분 */
       axios.post(`${BASE_URL}/answer/1/${urlAnswerIdR}`, {}).then((res) => {
         console.log(res.data);
       });
+
+      setWalking((prevWalking) => 2);
+    } else if (direction === "Left") {
+      console.log("왼쪽이동");
+      /* API 통신 코드가 필요한 부분 */
+      axios.post(`${BASE_URL}/answer/1/${urlAnswerIdL}`, {}).then((res) => {
+        console.log(res.data);
+      });
+
       setWalking((prevWalking) => 1);
     }
   };
@@ -182,6 +192,11 @@ export default function SQuestion() {
     if (stage === 12) {
       console.log("modal");
       setShowModal(true);
+      axios.get(`${BASE_URL}/result/1`, {}).then((res) => {
+        console.log(res.data);
+        setResult(res.data.tenType);
+        console.log(result);
+      });
     }
   };
 
@@ -240,7 +255,11 @@ export default function SQuestion() {
 
             <div className="Question-content Question-background-content">
               {showModal && (
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                  result={result}
+                />
               )}
               <span className="Question-progress-text content-text">
                 {stage}
