@@ -11,8 +11,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import ApiTest from "./ApiTest";
+
 /* 결과 모달 창 */
-function Modal({ showModal, setShowModal, dimensionValues }) {
+function Modal({ showModal, setShowModal, result }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -27,7 +29,7 @@ function Modal({ showModal, setShowModal, dimensionValues }) {
   return (
     <div className="modal">
       <div className="modal-content">
-        <button onClick={handleNavigate}>결과 보기</button>
+        <button onClick={handleNavigate}>{result}</button>
       </div>
     </div>
   );
@@ -90,8 +92,6 @@ export default function SQuestion() {
 
   const [walking, setWalking] = useState(false);
   const [motion, setMotion] = useState(false);
-  const [Lmotion, setLMotion] = useState(false);
-  const [Rmotion, setRMotion] = useState(false);
   const [position, setPosition] = useState(0);
 
   const [Lposition, setLposition] = useState(0);
@@ -107,6 +107,7 @@ export default function SQuestion() {
   const [urlAnswer2, setUrlAnswer2] = useState("");
   const [urlAnswerIdL, setUrlAnswerIdL] = useState();
   const [urlAnswerIdR, setUrlAnswerIdR] = useState();
+  const [result, setResult] = useState("null");
 
   /* API 통신 코드가 필요한 부분 */
   useEffect(() => {}, []);
@@ -169,6 +170,7 @@ export default function SQuestion() {
     if (stage === 12) {
       console.log("modal");
       setShowModal(true);
+      /* API 통신 코드가 필요한 부분 */
     }
   };
 
@@ -227,7 +229,11 @@ export default function SQuestion() {
 
             <div className="Question-content Question-background-content">
               {showModal && (
-                <Modal showModal={showModal} setShowModal={setShowModal} />
+                <Modal
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                  result={result}
+                />
               )}
               <span className="Question-progress-text content-text">
                 {stage}
