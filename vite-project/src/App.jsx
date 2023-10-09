@@ -5,6 +5,7 @@ import Error from "../src/pages/Error";
 import LSH from "../src/pages/LSH";
 import Main from "../src/pages/SHome";
 import SQuestion from "../src/pages/SQuestion";
+import SQuestion2 from "./pages/SQuestion2";
 import TagForm from "./pages/TagForm";
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
         <Route path="/" Component={Main} />
         <Route path="/*" Component={Error} />
         <Route path="/LSH" Component={LSH} />
-        <Route path="/question" Component={SQuestion} />
+        <Route path="/question" Component={SQuestion2} />
 
         <Route path="/TagForm" Component={TagForm} />
       </Routes>
